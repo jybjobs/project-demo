@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.freeter.modules.room.dao.OrganizationDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.freeter.modules.room.entity.OrganizationEntity" id="organizationMap">
+        <result property="orgId" column="org_id"/>
+        <result property="proId" column="pro_id"/>
+        <result property="cityId" column="city_id"/>
+        <result property="name" column="name"/>
+        <result property="orderNum" column="order_num"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="code" column="code"/>
+        <result property="adress" column="adress"/>
+        <result property="phone" column="phone"/>
+        <result property="attenName" column="atten_name"/>
+        <result property="website" column="website"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.freeter.modules.room.entity.vo.OrganizationVO" >
+		SELECT * FROM `organization`  organization         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.freeter.modules.room.entity.vo.OrganizationVO" >
+		SELECT  organization.* FROM `organization`  organization 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.freeter.modules.room.entity.view.OrganizationView" >
+
+		SELECT  organization.* FROM `organization`  organization 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.freeter.modules.room.entity.view.OrganizationView" >
+		SELECT * FROM `organization`  organization <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+</mapper>
